@@ -12,7 +12,31 @@
 
     <modules>
         <module>first</module>
-        <module>second</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>monolithic</id>
+            <!-- вставить по умолчанию -->
+            <properties>
+                <spring.profiles.active>monolithic</spring.profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>microservices</id>
+
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <spring.profiles.active>microservices</spring.profiles.active>
+            </properties>
+
+            <modules>
+                <module>second</module>
+            </modules>
+        </profile>
+    </profiles>
 
 </project>
